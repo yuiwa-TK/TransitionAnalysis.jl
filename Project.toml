@@ -1,0 +1,13 @@
+name = "TransitionAnalysis"
+uuid = "0eb2e624-4a70-4d84-9535-d48d4a7ad3db"
+authors = ["Yuta Iwatani"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]

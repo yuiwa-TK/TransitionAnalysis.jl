@@ -1,12 +1,17 @@
 module TransitionAnalysis
 
 # Write your package code here.
-using Reexport
+# using Reexport
 
 include("BasicFunction/TAbase.jl")
-using .Base
+import .Base
 
-# include("EnpericalRelation/EnpericalRelation.jl")
-# using .EnpericalRelation
+@info constatns=Base.Constant(
+    1.4, #gas specific ratio
+    0.72 #Prandtl number
+    )
+
+include("EmpericalRelation/EmpericalRelation.jl")
+import .EmpericalRelation
 
 end

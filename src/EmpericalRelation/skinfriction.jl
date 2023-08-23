@@ -1,4 +1,5 @@
-using ..TransitionAnalysis:Consts,Sutherland,EmpericalRelation.recovery_temp
+using ..TransitionAnalysis
+
 """
     cf_lami__incompressible(Rex)
 returns an emperical relation of *incompressible* *turbulent* boundary layer's skin friction coefficient
@@ -50,7 +51,7 @@ function cf_turb__compressible_WhiteCristoph(Rex, Twall, Mach; verbose=0)
     if verbose==1
         @info c1,γ,Te,μe
     end
-    Taw = recovery_temp(Mach,"turbulent")
+    Taw = TransitionAnalysis.recovery_temp(Mach,"turbulent")
     # eq.7-107 
     a = sqrt( 0.5*γ1*Mach*Mach*Te/Twall )
     b = Taw/Twall-1
@@ -64,7 +65,7 @@ function cf_turb__compressible_WhiteCristoph(Rex, Twall, Mach; verbose=0)
     
     # eq.7-133
     Fc = S*S
-    μw = Sutherland(Twall)
+    μw = TransitionAnalysis.Sutherland(Twall)
     F_Rex = (μe/μw)*sqrt(Twall/Te)/S
     Cf = cf_turb__incompressible(Rex*F_Rex)/Fc
     return Cf

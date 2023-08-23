@@ -1,7 +1,7 @@
 using ..TransitionAnalysis
 function recovery_temp_laminar(mach)
-    γ  = TransitionAnalysis.constatns.γ
-    Pr = TransitionAnalysis.constatns.pr
+    γ  = TransitionAnalysis.Consts.γ
+    Pr = TransitionAnalysis.Consts.pr
     r  = Pr^(1/3)
 
     recovery_temp_laminar = 1.0 + 0.5*r*(γ-1)*mach*mach
@@ -10,8 +10,8 @@ function recovery_temp_laminar(mach)
 end
 
 function recovery_temp_turbulent(mach)
-    γ  = TransitionAnalysis.constatns.γ
-    Pr = TransitionAnalysis.constatns.pr
+    γ  = TransitionAnalysis.Consts.γ
+    Pr = TransitionAnalysis.Consts.pr
     r  = Pr^(1/2)
 
     recovery_temp_turb = 1.0 + 0.5*r*(γ-1)*mach*mach

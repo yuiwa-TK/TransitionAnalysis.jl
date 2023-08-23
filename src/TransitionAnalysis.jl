@@ -1,17 +1,11 @@
 module TransitionAnalysis
 
+module Consts
+    const γ=1.4::Float64    # gas specific ratio
+    const pr=0.72::Float64  # Prandtl number
+end
 # Write your package code here.
-# using Reexport
-
 include("BasicFunction/TAbase.jl")
-import .Base
-
-@info constatns=Base.Constant(
-    1.4, #gas specific ratio
-    0.72 #Prandtl number
-    )
-
 include("EmpericalRelation/EmpericalRelation.jl")
-import .EmpericalRelation
 
 end

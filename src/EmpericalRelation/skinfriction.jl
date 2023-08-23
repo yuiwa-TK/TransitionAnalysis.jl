@@ -1,7 +1,4 @@
-using ..EmpericalRelation: recovery_temp
-using ..Base: Sutherland
-using ..TransitionAnalysis
-
+using ..TransitionAnalysis:Consts,Sutherland,EmpericalRelation.recovery_temp
 """
     cf_lami__incompressible(Rex)
 returns an emperical relation of *incompressible* *turbulent* boundary layer's skin friction coefficient
@@ -46,7 +43,7 @@ White, "Viscous Fluid Flow"(2006), pp558, eq(7-133)
 """
 function cf_turb__compressible_WhiteCristoph(Rex, Twall, Mach; verbose=0)
     c1=0.455
-    γ  = TransitionAnalysis.constatns.γ
+    γ  = TransitionAnalysis.Consts.γ
     γ1 = γ-1
     Te = 1.0
     μe = 1.0

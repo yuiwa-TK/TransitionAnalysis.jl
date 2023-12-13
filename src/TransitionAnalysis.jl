@@ -15,6 +15,9 @@ end
 # Fundamental functions
 include("BasicFunction/TAbase.jl")
 
+# Functions on Bondary Layer physics
+include("BoundaryLayer/BoundaryLayer.jl")
+
 # EmpericalRelation (correlations)
 include("EmpericalRelation/EmpericalRelation.jl")
 

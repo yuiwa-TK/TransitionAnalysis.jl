@@ -66,7 +66,20 @@ function cf_turb__compressible_WhiteCristoph(Rex, Twall, Mach; verbose=0)
     # eq.7-133
     Fc = S*S
     μw = TransitionAnalysis.Sutherland(Twall)
-    F_Rex = (μe/μw)*sqrt(Twall/Te)/S
+    F_Rex = (μe/μw)*sqrt(Te/Twall)/S
     Cf = cf_turb__incompressible(Rex*F_Rex)/Fc
+
+    # @info "Eq 7-132"
+    # Cf = 0.455/ (S*S)/ (log(0.06/S*Rex*μw/μe*sqrt(Te/Twall)))^2
     return Cf
+end
+"""
+    Cf_conv_comp2incomp(Cf_comp, Twall, T∞)
+convert the friction coefficient of adiabatic compressible turbulent boundary layer into incompressible turbulent boundary laeyr.
+"""
+function Cf_conv_comp2incomp(Cf_comp; Twall, T∞=1.0)
+    r = Twall/T∞
+    α = (r-1)/ sqrt(r*(r-1))
+    p = asin(α)*asin(α)
+    return Cf_comp*(r-1)/p
 end
